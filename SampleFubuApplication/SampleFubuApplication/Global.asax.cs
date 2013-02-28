@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Bottles;
+using FubuMVC.Core;
+using SampleFubuApplication.App_Start;
+using FubuMVC.StructureMap;
+using StructureMap;
 
 namespace SampleFubuApplication
 {
@@ -14,7 +19,11 @@ namespace SampleFubuApplication
     {
         protected void Application_Start()
         {
-            
+            FubuApplication.For<ConfigureFubuMVC>()
+                           .StructureMap(new Container())
+                           .Bootstrap();
+
+            PackageRegistry.AssertNoFailures();
         }
     }
 }
