@@ -73,5 +73,8 @@ namespace SampleFubuApplication.DataAccess
         public int ID { get; set; }
         public int UserID { get; set; }
         public string TaskName { get; set; }
+        public bool Completed { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime CompletedDate { get; set; }
     }
 }

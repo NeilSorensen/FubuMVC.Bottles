@@ -1,0 +1,33 @@
+﻿<viewdata model="SampleFubuApplication.TaskListView.TaskList">
+<use namespace="FubuMVC.Core.Assets" />
+<use namespace="System"/>
+
+<html>
+	<body>
+	<table>
+	<tr>
+		<th></th>
+		<th>Task</th>
+		<th>Completed On</th>
+	</tr>
+	<for each="var task in Model.WorkItems">
+		<tr>
+		
+			<td>
+				<test if="!task.Completed">
+				<input type="checkbox" >
+				<else/>
+				<input type="checkbox" checked="True">
+				</test>
+			</td>
+			<td>${task.TaskName}</td>
+			<td>
+				<test if="task.CompletedDate != DateTime.MinValue">
+				${task.CompletedDate}
+				</test>
+			</td>
+		</tr>
+	</for>
+	</table>
+	</body>
+</html>
