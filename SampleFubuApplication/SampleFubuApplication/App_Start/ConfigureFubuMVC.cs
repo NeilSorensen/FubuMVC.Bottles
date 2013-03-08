@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using FubuMVC.Core;
+using SampleFubuApplication.TaskListView;
 
 namespace SampleFubuApplication.App_Start
 {
@@ -12,7 +13,9 @@ namespace SampleFubuApplication.App_Start
         {
             Actions.IncludeClassesSuffixedWithController();
 
-            Routes.RootAtAssemblyNamespace();
+            Routes.IgnoreControllerNamespaceEntirely()
+                .IgnoreClassNameForType<TaskListController>()
+                .HomeIs<TaskListController>(x => x.TaskList(new TaskListInput{UserId = 1}));
         }
     }
 }
