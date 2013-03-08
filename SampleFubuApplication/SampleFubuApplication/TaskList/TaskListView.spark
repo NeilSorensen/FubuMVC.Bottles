@@ -22,9 +22,7 @@
 			</td>
 			<td>${task.TaskName}</td>
 			<td>
-				<test if="task.CompletedDate != DateTime.MinValue">
-				${task.CompletedDate}
-				</test>
+				!{this.InputFor(task, x => x.CompletedDate)}
 			</td>
 		</tr>
 	</for>
