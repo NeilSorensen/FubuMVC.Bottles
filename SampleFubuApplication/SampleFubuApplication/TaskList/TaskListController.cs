@@ -8,9 +8,9 @@ namespace SampleFubuApplication.TaskListView
 {
     public class TaskListController
     {
-        public TaskList TaskList_UserId(TaskListInput input)
+        public TaskList TaskList(TaskListInput input)
         {
-            return new TaskList()
+            return new TaskList
                 {
                     WorkItems = new List<WorkItem>
                         {
